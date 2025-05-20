@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aprendizado</title>
+    <style>
+        img{
+            width: 580px;
+            height: 820px;
+        }
+        #cavinho{
+            border: 1px solid rgb(28, 28, 114);
+        }
+    </style>
+</head>
+<body>
+    <img id="imagem" src="close.jpg" onmouseover="mouseover()" onmouseout="mouseout()">
+
+
+    <h1>Canvas</h1>
+    <canvas id="cavinho"  width="480px" height="300px">
+        Esse navegador tem uma caixa canva.
+    </canvas>
+</body>
+<script>
+    
+    var imagenida;
+    imagenida = document.getElementById('imagem');
+    
+    function mouseover(){
+    imagenida.src="close.jpg";
+    }
+    function mouseout(){
+    imagenida.src="open.jpeg"
+    }
+
+    //ctx.fillStyle="#red";
+    //ctx.fillRect(9,9,102,102);
+    //ctx.clearRect(30, 30, 25, 25);
+    //ctx.clearRect(75, 30, 25, 25); //boca
+    //ctx.clearRect(30, 75, 70, 30);
+    //ctx.fillRect(85, 40, 5, 5);
+    //ctx.fillRect(43, 40, 5, 5);
+    //ctx.strokeRect(9, 9, 105,105);
+    
+    //ctx.fillRect(10,25,70,60);
+    //ctx.fillRect(40,45,70,40); //x, y, with, height
+    //ctx.fillRect(100,65,40,20);
+    /*
+    var x = parseInt(cv.width);
+    var y = parseInt(cv.height);
+    x=(x/2)-60;
+    y=(y/2)-30;
+    ctx.fillStyle="blue";
+    ctx.fillRect(x, y, 120, 20);
+    x += 40;
+    y -= 20;
+    ctx.fillStyle="red";
+    ctx.fillRect(x, y, 80, 20);
+    x += 40;
+    y -= 20;
+    ctx.fillStyle="orange";
+    ctx.fillRect(x, y, 40, 20);
+    */
+   var texto;
+   function Randoncolor(){
+        
+    return '#' + Math.floor(Math.random()* 16777215).toString(16);
+    }
+    function DesenhaQuadrado(cv, ctx){
+        ctx.strokeRect = Randoncolor();
+        x = parseInt(cv.width); 
+        y = parseInt(cv.height);
+        x-=40; y-=40;
+        lado = Math.floor(Math.random()*40);
+        x = Math.floor(Math.random() *x);
+        y = Math.floor(Math.random()*y);
+        ctx.strokeRect(x,y, lado, lado);
+
+        return;
+    }
+
+
+    //ctx.fillStyle=Randoncolor();
+
+    var cv = document.getElementById("cavinho");
+    var ctx = cv.getContext("2d");
+    DesenhaQuadrado(cv, ctx);
+    Randoncolor();  
+    DesenhaQuadrado(cv, ctx);   
+    
+    
+</script>
+</html>
